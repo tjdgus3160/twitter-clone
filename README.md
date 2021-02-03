@@ -5,5 +5,5 @@
 + React
 + React Hooks
 + firebase
- + auth
- + database
+ - auth
+ - database
