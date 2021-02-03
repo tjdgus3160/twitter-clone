@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { dbService } from 'fbase';
+import Tweet from 'components/Tweet';
 
 const Home = ({ userObj }) => {
     const [tweet, setTweet] = useState("");
     const [tweets, setTweets] = useState([]);
     useEffect(() => {
-        dbService.collection("tweets").onSnapshot((snapshot) => {
+        dbService.collection("tweets").onSnapshot((snapshot) => {   // realtime 구현
             const tweetArray = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ...doc.data()
@@ -34,9 +35,11 @@ const Home = ({ userObj }) => {
             </form>
             <div>
                 {tweets.map(tweet => (
-                    <div key={tweet.id}>
-                        <h4>{tweet.text}</h4>
-                    </div>
+                    <Tweet 
+                        key={tweet.id} 
+                        tweetObj={tweet} 
+                        isOwner={tweet.creatorId === userObj.uid} 
+                    />
                 ))}
             </div>
         </div>
