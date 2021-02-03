@@ -5,5 +5,6 @@
 + React
 + React Hooks
 + firebase
-  - auth
-  - firestore(db)
+  - Authentication(UserPool)
+  - Cloud Firestore(Database)
+  - Storage(FileStorage)
