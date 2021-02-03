@@ -6,4 +6,4 @@
 + React Hooks
 + firebase
   - auth
-  - database
+  - firestore(db)
